@@ -19,4 +19,6 @@ After this is finished run <br />
 `python searchParty.py members` <br />
 This will search each healpix pixel in the cosmoDC2 catalog for duplicates. Now we just need to combine the results: <br />
 `python combineResults.py halos` <br />
-`python combineResults.py members`
+`python combineResults.py members` <br />
+
+To run at NERSC you will need to modify the slurm options in `utils.py` to comply with NERSC requirements.
