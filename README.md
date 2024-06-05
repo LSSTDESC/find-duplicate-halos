@@ -10,7 +10,7 @@ This was an issue realized after the DC2 images were built so it was decided to 
 
 These duplicates are not present in the skySim5000 simulation and as such it is advised, when possible to use skySim5000. But if you need to use cosmoDC2 and DC2 then this repo provides a way to collect the halo and galaxy IDs of the duplicates. Note, it only flags the halo to remove, leaving behind the other halo.
 
-The base code was provide by Patricia Larsen (@patricialarsen) -- some extensions were made to run effeciently over the full cosmoDC2 catalog.
+The base code was provide by Patricia Larsen (@patricialarsen <a href="https://github.com/patricialarsen" target="_blank">@patricialarsen</a>) -- some extensions were made to run effeciently over the full cosmoDC2 catalog.
 
 # To run:
 Note, you don't need to run the code. The duplicate halos and members have been provided in duplicateHalos.npy and duplicateMembers.npy. But, for clarity, to run at CC-in2p3 you just need to say <br />
