@@ -17,4 +17,6 @@ print('DONE')
 
 print(len(cluster_data['galaxy_id']))
 
-np.save(f'./duplicateMembers_pix/{pix}.npy', np.array(cluster_data['galaxy_id']).astype(int))
+scr = __file__.replace(os.path.basename(__file__), '')
+
+np.save(f'{scr}duplicateMembers_pix/{pix}.npy', np.array(cluster_data['galaxy_id']).astype(int))

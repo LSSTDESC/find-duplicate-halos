@@ -1,6 +1,6 @@
 import GCRCatalogs
 import numpy as np
-import sys
+import sys, os
 
 np.bool = bool
 
@@ -70,7 +70,7 @@ for obj in range(len(bad_ids)):
     # calculate distance of halo sample to halo 
     dist_halos = np.sqrt((cluster_data_sky['x'][mask_comparison] - cluster_data['x'][idx])**2 + (cluster_data_sky['y'][mask_comparison] - cluster_data['y'][idx])**2 + (cluster_data_sky['z'][mask_comparison] - cluster_data['z'][idx])**2)
     # calculate whether mass and distance are both close (exact mass and dist<200kpc)
-    mask_dup = (cluster_data_sky['halo_mass'][mask_comparison]==cluster_data['halo_mass'][idx])&(dist_halos<0.7)
+    mask_dup = (cluster_data_sky['halo_mass'][mask_comparison] == cluster_data['halo_mass'][idx]) & (dist_halos < 0.06)
     if np.sum(mask_dup)>0:
         # we should have one duplicate exactly (matching to itself), so duplicate means >1
         bad_ids_true.append(bad_ids[obj])
@@ -86,5 +86,8 @@ print('DONE')
 print("Number of duplicates found in skysim: ", duplicates)
 print("Halo ids of duplicate halos: ", duplicate_halo_id)
 
-np.save(f"./duplicateHalos_pix/{pix}.npy", np.array(duplicate_halo_id).astype(int))
+
+scr = __file__.replace(os.path.basename(__file__), '')
+
+np.save(f"{scr}duplicateHalos_pix/{pix}.npy", np.array(duplicate_halo_id).astype(int))
 
